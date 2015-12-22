@@ -20,7 +20,8 @@ ctrl <- trainControl(method ="repeatedcv",
                      repeats = 1,
                      summaryFunction = computeRMSLE)
 
-rf.fit <- train (count ~ . - casual - registered - datetime,
+rf.fit <- train (count ~ season + holiday + workingday + weather + temp + atemp +
+                         humidity + windspeed + year + month + day + hour,
                  data = train.df,
                  method = "rf",
                  preProcess = c("center", "scale"),

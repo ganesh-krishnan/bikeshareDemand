@@ -1,0 +1,54 @@
+---
+title: "Exploratory Analysis"
+author: "Ganesh Krishnan"
+date: "December 20, 2015"
+output: html_document
+---
+
+```{r global_opts, echo=FALSE, message=FALSE, warning=FALSE}
+knitr::opts_chunk$set (echo=FALSE, message=FALSE, warning=FALSE)
+```
+
+```{r loadLibraries}
+library (plyr)
+library (dplyr)
+library (ggplot2)
+library (lubridate)
+library (reshape2)
+
+source ("support.R")
+```
+
+```{r loadDataSets}
+train.df <- read.csv ("data/train.csv")
+test.df <- read.csv ("data/test.csv")
+
+train.df <- formatData (train.df) %>% tbl_df()
+test.df <- formatData (test.df) %>% tbl_df()
+```
+
+```{r plotAll}
+long.df <- melt (train.df, measure.vars=c("count", "casual", "registered"), variable.name="type", value.name="total")
+
+ggplot (long.df, aes (x=temp)) + geom_smooth (aes (y=total, color=type))
+ggplot (long.df, aes (x=atemp)) + geom_smooth (aes (y=total, color=type))
+ggplot (long.df, aes (x=windspeed)) + geom_smooth (aes (y=total, color=type))
+ggplot (long.df, aes (x=humidity)) + geom_smooth (aes (y=total, color=type))
+ggplot (long.df, aes (x=datetime)) + geom_smooth (aes (y=total, color=type))
+ggplot (long.df, aes (x=holiday, y=total)) + geom_boxplot() + facet_wrap(~type)
+ggplot (long.df, aes (x=workingday, y=total)) + geom_boxplot() + facet_wrap(~type)
+ggplot (long.df, aes (x=season, y=total, group=season)) + geom_boxplot() + facet_wrap (~type)
+ggplot (long.df, aes (x=weather, y=total, group=weather)) + geom_boxplot() + facet_wrap (~type)
+```
+
+Conclusions:
+1) Seems like ride count steadily increases with temperature until about 35C
+2) Seems like atemp might be a better predictor compared to temp
+3) Seems like windspeed may be a poor predictor
+4) People don't like to rent when the humidity is high
+5) In general, demand is dominated by regular users on working days, probably for their commute
+6) Demand tends to be higher in the summer and fall
+7) There tend to be huge outliers. The outliers are always high demand, rather than low demand
+
+
+#rmarkdown::render ('exploratory.Rmd', output_file ='reports/explore.html')
