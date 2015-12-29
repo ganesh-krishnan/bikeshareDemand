@@ -15,6 +15,7 @@ library (dplyr)
 library (ggplot2)
 library (lubridate)
 library (reshape2)
+library (gam)
 
 source ("support.R")
 ```
@@ -35,6 +36,13 @@ ggplot (long.df, aes (x=atemp)) + geom_smooth (aes (y=total, color=type))
 ggplot (long.df, aes (x=windspeed)) + geom_smooth (aes (y=total, color=type))
 ggplot (long.df, aes (x=humidity)) + geom_smooth (aes (y=total, color=type))
 ggplot (long.df, aes (x=datetime)) + geom_smooth (aes (y=total, color=type))
+ggplot (long.df, aes (x=hour)) + geom_smooth (aes(y=total, color=type))
+
+ggplot (long.df, aes (x=wday, y=total, group=type, color=type)) + geom_point () +
+        stat_smooth (method="gam", formula=y ~ ns(x, k=5))
+ #+ geom_smooth (aes(color=type))
+                                              
+                                              
 ggplot (long.df, aes (x=holiday, y=total)) + geom_boxplot() + facet_wrap(~type)
 ggplot (long.df, aes (x=workingday, y=total)) + geom_boxplot() + facet_wrap(~type)
 ggplot (long.df, aes (x=season, y=total, group=season)) + geom_boxplot() + facet_wrap (~type)

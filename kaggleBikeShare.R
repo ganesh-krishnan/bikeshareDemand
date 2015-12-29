@@ -20,12 +20,15 @@ ctrl <- trainControl(method ="repeatedcv",
                      repeats = 1,
                      summaryFunction = computeRMSLE)
 
+tunegrid <- data.frame (mtry=17)
+
 rf.fit <- train (count ~ season + holiday + workingday + weather + temp + atemp +
-                         humidity + windspeed + year + month + day + hour,
+                         humidity + windspeed + year + month + wday + day + hour,
                  data = train.df,
                  method = "rf",
                  preProcess = c("center", "scale"),
                  trControl = ctrl,
+                 tuneGrid = tunegrid,
                  metric = "rmsle",
                  maximize = FALSE
                  )
