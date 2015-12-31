@@ -20,6 +20,8 @@ computeRMSLE <- function (data, lev=NULL, model=NULL)
         if (!is.null (lev) & !is.na (lev))
                 stop (paste ("RMSLE metric is only applicable to regression"))
         
+        data$pred[data$pred < 0] <- 0
+        
         rmsle <- sqrt (mean ((log (1 + data$obs) - log (1 + data$pred))^2))
         names (rmsle) <- "rmsle"
         
