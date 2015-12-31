@@ -28,7 +28,7 @@ enet.fit <- train (count ~ season + holiday + workingday + weather + temp + atem
                          humidity + windspeed + year + month + wday + day + hour,
                  data = train.df,
                  method = "enet",
-                 preProcess = c("center", "scale", "zv"),
+                 preProcess = c("center", "scale", "zv", "BoxCox"),
                  trControl = ctrl,
                  tuneGrid = tuneGrid,
                  metric = "rmsle",
