@@ -1,4 +1,4 @@
-formatData <- function (df)
+formatData <- function (df, logTransform=FALSE)
 {
         df$datetime <- ymd_hms (df$datetime)
         df$year <- year (df$datetime)
@@ -12,8 +12,17 @@ formatData <- function (df)
                               labels=c("clear", "cloudy", "lightRainOrSnow", "heavyRain"))
         df$season <- factor (df$season, levels=c(1:4), 
                              labels=c("spring", "summer", "fall", "winter"))
+        
+        if (logTransform == TRUE) 
+        {
+                df$count <- log (df$count + 1)
+                df$casual <- log (df$casual + 1)
+                df$registered <- log (df$registered + 1)
+        }
+        
         df
 }
+
 
 computeRMSLE <- function (data, lev=NULL, model=NULL)
 {

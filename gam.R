@@ -22,7 +22,7 @@ ctrl <- trainControl(method ="repeatedcv",
                      repeats = 1,
                      summaryFunction = computeRMSLE)
 
-tuneGrid <- data.frame (df=seq (3, 15, 1))
+tuneGrid <- data.frame (df=seq (20, 30, 1))
 
 gam.fit <- train (count ~ season + holiday + workingday + weather + temp + atemp +
                            humidity + windspeed + year + month + wday + day + hour,
@@ -32,7 +32,8 @@ gam.fit <- train (count ~ season + holiday + workingday + weather + temp + atemp
                    trControl = ctrl,
                    tuneGrid = tuneGrid,
                    metric = "rmsle",
-                   maximize = FALSE
+                   maximize = FALSE,
+                   family = gaussian (link="log")
 )
 
 test.df$casual=1
