@@ -8,7 +8,7 @@ library (doMC)
 
 source ("support.R")
 
-#registerDoMC (cores=2)
+registerDoMC (cores=2)
 train.df <- read.csv ("data/train.csv")
 test.df <- read.csv ("data/test.csv")
 
