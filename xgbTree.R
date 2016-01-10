@@ -45,7 +45,6 @@ y.pred <- predict (fit, test.df)
 result.df <- data.frame (datetime=strftime (test.df$datetime, 
                                             format="%Y-%m-%d %H:%M:%S", 
                                             tz="UTC"),
-                         count=as.integer (y.pred)
-)
+                         count=as.integer (y.pred))
 
 write.csv (result.df, "result-xgbTree.csv", quote=FALSE, row.names=FALSE)
