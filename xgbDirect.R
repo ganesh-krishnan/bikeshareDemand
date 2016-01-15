@@ -21,14 +21,14 @@ testData <- xgb.DMatrix (model.matrix (train.formula, test.df))
 params <- list (booster="gbtree",
                 eta=0.01,
                 gamma=1,
-                max_depth=6,
+                max_depth=8,
                 min_child_weight=1,
-                subsample=1,
+                subsample=0.8,
                 colsample_bytree=1,
                 objective="reg:linear",
                 eval_metric="rmse")
 
-fit <- xgb.train (params, trainData, nround = 732, nfold = 5)
+fit <- xgb.train (params, trainData, nround = 1900, nfold = 5)
 
 y.pred <- exp (predict (fit, testData)) - 1
 result.df <- data.frame (datetime=strftime (test.df$datetime, 
