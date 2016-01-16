@@ -28,7 +28,7 @@ params <- list (booster="gbtree",
                 objective="reg:linear",
                 eval_metric="rmse")
 
-fit <- xgb.train (params, trainData, nround = 1900, nfold = 5)
+fit <- xgb.train (params, trainData, nround = 1900, nfold = 5, watchlist=list (train=trainData))
 
 y.pred <- exp (predict (fit, testData)) - 1
 result.df <- data.frame (datetime=strftime (test.df$datetime, 
