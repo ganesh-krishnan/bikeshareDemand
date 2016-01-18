@@ -1,2 +1,8 @@
-xgbDirect.R - 0.400
+xgbDirect.R - 0.278473
+        eta:  0.016350073543
+        max_depth:  5
+        subsample:  0.552586063609
+        col_sample_bytree:  0.642917369988
+        min_child_weight:  0.384432216102
+        gamma:  0.402912365991
 gam.R - 0.615
