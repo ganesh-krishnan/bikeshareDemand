@@ -6,7 +6,6 @@ from hyperopt import fmin, tpe, hp
 def objective (params):
     eta, max_depth, subsample, col_sample_bytree, min_child_weight, gamma = params
 
-    print "eta: ", eta
     rParams = ro.ListVector ({
         'eta': ro.FloatVector ([eta]),
         'max_depth': ro.IntVector ([max_depth]),
@@ -57,7 +56,7 @@ ro.r('source ("xgbDirect-hyperopt.R")')
 best = fmin (objective,
              space = space,
              algo = tpe.suggest,
-             max_evals= 1)
+             max_evals= 100)
 
 print best
             

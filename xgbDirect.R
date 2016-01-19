@@ -18,17 +18,18 @@ train.formula <-  ~ season + holiday + workingday + weather + temp + atemp +
 trainData <- xgb.DMatrix (model.matrix (train.formula, train.df), label=train.df$count)
 testData <- xgb.DMatrix (model.matrix (train.formula, test.df))
 
+set.seed (4322)
 params <- list (booster="gbtree",
-                eta=0.01,
-                gamma=1,
-                max_depth=8,
-                min_child_weight=1,
-                subsample=0.8,
-                colsample_bytree=1,
+                eta=0.00872705408756,
+                gamma=0.0970527175576,
+                max_depth=7,
+                min_child_weight=2.20181978021,
+                subsample=0.571707896984,
+                colsample_bytree=0.681358199487,
                 objective="reg:linear",
                 eval_metric="rmse")
 
-fit <- xgb.train (params, trainData, nround = 1900, nfold = 5, watchlist=list (train=trainData))
+fit <- xgb.train (params, trainData, nround = 5000, nfold = 5)
 
 y.pred <- exp (predict (fit, testData)) - 1
 result.df <- data.frame (datetime=strftime (test.df$datetime, 

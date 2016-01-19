@@ -1,13 +1,14 @@
-library (caret)
-library (lubridate)
-library (dplyr)
-library (xgboost)
+suppressMessages (library (caret))
+suppressMessages (library (lubridate))
+suppressMessages (library (dplyr))
+suppressMessages (library (xgboost))
 
 source ("support.R")
 
 fitFunc <- function (fitFormula, trainData, params)
 {
        
+        set.seed (4322)
         fit <- xgb.cv(params, booster="gbtree", objective="reg:linear", eval_metric="rmse", 
                       data=trainData, nround = 10000, nfold = 5, early.stop.round = 5,
                       verbose=FALSE)
