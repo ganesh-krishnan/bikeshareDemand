@@ -24,7 +24,9 @@ ctrl <- trainControl(method ="repeatedcv",
 tuneGrid <- expand.grid (fraction = seq (0, 1, 0.1), lambda=10^seq (-5, 5, 0.5))
 
 fit <- train (count ~ season + holiday + workingday + weather + temp + atemp +
-                           humidity + windspeed + year + month + wday + day + hour,
+                      humidity + windspeed + year + month + wday + day + hour +
+                      I(hour^2) + I(day^2) + I(wday^2) + I(month^2) + I(windspeed^2) +
+                      I(atemp^2),
                    data = train.df,
                    method = "enet",
                    preProcess = c("center", "scale", "zv", "BoxCox"),

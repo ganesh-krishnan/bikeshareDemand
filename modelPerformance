@@ -6,3 +6,6 @@ xgbDirect.R - 0.26698
         subsample=0.571707896984,
         colsample_bytree=0.681358199487
 gam.R - 0.615
+extraTrees.R - 0.3191
+        mtry=13
+        numRandomCuts=3
