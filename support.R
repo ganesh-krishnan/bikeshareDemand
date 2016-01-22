@@ -13,6 +13,8 @@ formatData <- function (df, logTransform=FALSE)
         df$season <- factor (df$season, levels=c(1:4), 
                              labels=c("spring", "summer", "fall", "winter"))
         
+        df$earlyHour <- factor (df$hour <=5)
+                
         if (logTransform == TRUE) 
         {
                 df$count <- log (df$count + 1)
