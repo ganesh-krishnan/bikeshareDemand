@@ -12,8 +12,12 @@ test.df <- read.csv ("data/test.csv")
 train.df <- formatData (train.df, logTransform = TRUE) %>% tbl_df()
 test.df <- formatData (test.df) %>% tbl_df()
 
+train.df$month <- factor (train.df$month)
+train.df$year <- factor (train.df$year)
+
 train.formula <-  ~ season + holiday + workingday + weather + temp + atemp +
         humidity + windspeed + year + month + wday + day + hour - 1
+
 
 trainData <- xgb.DMatrix (model.matrix (train.formula, train.df), label=train.df$casual)
 testData <- xgb.DMatrix (model.matrix (train.formula, test.df))
@@ -29,5 +33,4 @@ params <- list (booster="gbtree",
                 objective="reg:linear",
                 eval_metric="rmse")
 
-fit <- xgb.cv (params, trainData, nround = 10000, nfold = 5, prediction = TRUE, 
-               early.stop.round = 3)
+fit <- xgb.cv (params, trainData, nround = 10000, nfold = 5, prediction = TRUE)

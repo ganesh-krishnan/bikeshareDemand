@@ -19,6 +19,11 @@ fitFunc <- function (fitFormula, trainData, params)
 train.df <- read.csv ("data/train.csv")
 
 train.df <- formatData (train.df, logTransform = TRUE) %>% tbl_df()
+train.df$month <- factor (train.df$month)
+train.df$year <- factor (train.df$year)
+
+outlierDateTimes <- ymd_hms ("2012-11-07 00:00:00", "2011-01-09 22:00:00")
+train.df <- filter (train.df, !datetime %in% outlierDateTimes)
 
 train.formula <-  ~ season + holiday + workingday + weather + temp + atemp +
         humidity + windspeed + year + month + wday + day + hour - 1
