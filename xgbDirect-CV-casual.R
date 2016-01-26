@@ -22,17 +22,17 @@ train.formula <-  ~ season + holiday + workingday + weather + temp + atemp +
         humidity + windspeed + year + month + wday + day + hour - 1
 
 
-trainData <- xgb.DMatrix (model.matrix (train.formula, train.df), label=train.df$registered)
+trainData <- xgb.DMatrix (model.matrix (train.formula, train.df), label=train.df$casual)
 testData <- xgb.DMatrix (model.matrix (train.formula, test.df))
 
 set.seed (4322)
 params <- list (booster="gbtree",
-                eta=0.01,
-                gamma=0,
-                max_depth=3,
-                min_child_weight=1,
-                subsample=0.8,
-                colsample_bytree=1,
+                eta=0.00330925962444,
+                gamma=0.684530964272,
+                max_depth=7,
+                min_child_weight=0.596497397942,
+                subsample=0.678093555386,
+                colsample_bytree=0.662176894972,
                 objective="reg:linear",
                 eval_metric="rmse")
 

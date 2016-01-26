@@ -17,25 +17,25 @@ def objective (params):
     f1=open ('./hyperopt-results', "a")
     
     print "--------------New Trial---------------"
-    print "eta: ", eta
-    print "max_depth: ", max_depth
-    print "subsample: ", subsample
-    print "col_sample_bytree: ", col_sample_bytree
-    print "min_child_weight: ", min_child_weight
-    print "gamma: ", gamma
+    print "eta,", eta
+    print "max_depth,", max_depth
+    print "subsample,", subsample
+    print "col_sample_bytree,", col_sample_bytree
+    print "min_child_weight,", min_child_weight
+    print "gamma,", gamma
 
     print >> f1, "--------------New Trial---------------"
-    print >> f1, "eta: ", eta
-    print >> f1, "max_depth: ", max_depth
-    print >> f1, "subsample: ", subsample
-    print >> f1, "col_sample_bytree: ", col_sample_bytree
-    print >> f1, "min_child_weight: ", min_child_weight
-    print >> f1, "gamma: ", gamma
+    print >> f1, "eta,", eta
+    print >> f1, "max_depth,", max_depth
+    print >> f1, "subsample,", subsample
+    print >> f1, "col_sample_bytree,", col_sample_bytree
+    print >> f1, "min_child_weight,", min_child_weight
+    print >> f1, "gamma,", gamma
 
     ro.globalenv['params'] = rParams
     rmse = ro.r('fitFunc (fitFormula, trainData, params)')
     print (rmse[0])
-    print >> f1, "Result is: ", rmse[0]
+    print >> f1, "Result is,", rmse[0]
     f1.close()
     return (rmse[0])
     
