@@ -44,16 +44,16 @@ fit1 <- xgb.train (params, trainData, nround = 8500, nfold = 5)
 trainData <- xgb.DMatrix (model.matrix (train.formula, train.df), label=train.df$registered)
 
 params <- list (booster="gbtree",
-                eta=0.01,
-                gamma=0,
-                max_depth=3,
-                min_child_weight=1,
-                subsample=0.8,
-                colsample_bytree=1,
+                eta=0.00291713063475,
+                gamma=0.00833471795637,
+                max_depth=6,
+                min_child_weight=1.57952698042,
+                subsample=0.626763785155,
+                colsample_bytree=0.685032802413,
                 objective="reg:linear",
                 eval_metric="rmse")
 
-fit2 <- xgb.train (params, trainData, nround = 3700, nfold = 5)
+fit2 <- xgb.train (params, trainData, nround = 10000, nfold = 5)
 
 y.pred <- (exp (predict (fit1, testData)) - 1) + (exp (predict (fit2, testData)) - 1)
 y.pred[y.pred < 0] = 0

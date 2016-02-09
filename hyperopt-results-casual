@@ -774,3 +774,11 @@ col_sample_bytree, 0.785514483877
 min_child_weight, 1.72342050668
 gamma, 1.19174633124
 Result is, 0.449304
+--------------New Trial---------------
+eta, 0.00433283909072
+max_depth, 7
+subsample, 0.7143231417
+col_sample_bytree, 0.909120722574
+min_child_weight, 0.498365141967
+gamma, 1.27561915681
+Result is, 0.449667

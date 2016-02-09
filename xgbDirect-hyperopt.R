@@ -28,7 +28,7 @@ train.df <- filter (train.df, !datetime %in% outlierDateTimes)
 train.formula <-  ~ season + holiday + workingday + weather + temp + atemp +
         humidity + windspeed + year + month + wday + day + hour - 1
 
-trainData <- xgb.DMatrix (model.matrix (train.formula, train.df), label=train.df$casual)
+trainData <- xgb.DMatrix (model.matrix (train.formula, train.df), label=train.df$registered)
 
 # params <- list (eta=0.18542623350463372,
 #                 gamma=2.072654565080585,
