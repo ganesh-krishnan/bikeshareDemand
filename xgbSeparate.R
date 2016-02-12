@@ -55,6 +55,18 @@ params <- list (booster="gbtree",
 
 fit2 <- xgb.train (params, trainData, nround = 10000, nfold = 5)
 
+xgb.save (fit1, 'models/xgb.casual.model')
+xgb.save (fit2, 'models/xgb.registered.model')
+
+y.pred <- (exp (predict (fit1, trainData)) - 1) + (exp (predict (fit2, trainData)) - 1)
+y.pred[y.pred < 0] = 0
+result.df <- data.frame (datetime=strftime (train.df$datetime, 
+                                            format="%Y-%m-%d %H:%M:%S", 
+                                            tz="UTC"),
+                         count=y.pred)
+
+write.csv (result.df, "models/result-xgbSeparate-train.csv", quote=FALSE, row.names=FALSE)
+
 y.pred <- (exp (predict (fit1, testData)) - 1) + (exp (predict (fit2, testData)) - 1)
 y.pred[y.pred < 0] = 0
 result.df <- data.frame (datetime=strftime (test.df$datetime, 

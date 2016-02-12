@@ -1,8 +1,9 @@
 library (plyr)
 library (dplyr)
+library (caret)
 
 generateWeights <- function (numResults = 3, gridSpacing = 0.2) {
-        stopifnot (numResults >=1, !is.integer (numResults))
+        stopifnot (numResults >=1, is.integer (numResults))
         
         w <- data.frame (w1=seq (0, 1, gridSpacing))
         if (numResults == 1) return (w)
@@ -91,7 +92,7 @@ findBestWeightedAverage <- function (weightMatrix, df, resultColName, resultVect
         weightedResultsList <- findWeightedAverageForWeightMatrix (weightMatrix, df, 
                                                                         resultColName)
         
-        error <- sapply (weightedResultsList, function (x) {mean (x-resultVector)})
+        error <- sapply (weightedResultsList, function (x) {mean ((x-resultVector)^2)})
         
         return (unlist (weightMatrix[which.min (error), ]))
 }
@@ -107,19 +108,57 @@ findBestCrossValidatedWeightedAverage <- function (weightMatrix, df, resultColNa
                         bestWeights <- findBestWeightedAverage (weightMatrix, trainDF, 
                                                                 resultColName, resultVector[x])
                         
+                        print (bestWeights)
+                        
                         testDF <- df[-x, ]
                         testAvg <- findWeightedAverageForWeightVector (bestWeights, 
                                                                        testDF, resultColName)
                         
-                        return (mean (testAvg - resultVector[-x]))
+                        return (sqrt (mean ((testAvg - resultVector[-x])^2)))
                         
         })
 }
 
-files <- c ("result-xgbDirect.csv", "result-extraTrees.csv", "result-vw.nn.csv")
+files <- c ("models/result-xgbSeparate-train.csv", "models/result-extraTrees-train.csv",
+            "models/result-vw-train.csv")
 
 resultList <- lapply (files, function (x) {read.csv (x, header=TRUE, stringsAsFactors = FALSE)})
-resultDF <- createEnsemble (resultList)
+resultDF <- createCompositeDF (resultList, "count") %>% tbl_df()
 
-write.csv (resultDF, "result-ensemble.csv", row.names = FALSE, quote = FALSE)
+for (i in 1:length(files)) {
+        varName <- paste0 ("count_", i)
+        dots <- lazyeval::interp (~ log (1+a), a=as.name (varName))
+        resultDF <- mutate_ (resultDF, .dots=setNames (list (dots), varName))
+}
 
+ctrl <- trainControl (method = "repeatedcv",
+                      number = 5,
+                      repeats = 1,
+                      verboseIter = TRUE,
+                      savePredictions = TRUE)
+
+tuneGrid <- expand.grid (fraction = seq (0, 1, 0.1), lambda=10^seq (-5, 5, 0.5))
+
+fit <- train (resultDF[,-1], train.df$count, method="xgbLinear", trControl=ctrl)#, tuneGrid = tuneGrid)
+
+files <- c ("result-xgbSeparate.csv", "result-extraTrees.csv",
+            "result-vw.csv")
+
+testList <- lapply (files, function (x) {read.csv (x, header=TRUE, stringsAsFactors = FALSE)})
+testDF <- createCompositeDF (testList, "count") %>% tbl_df()
+
+for (i in 1:length(files)) {
+        varName <- paste0 ("count_", i)
+        dots <- lazyeval::interp (~ log (1+a), a=as.name (varName))
+        testDF <- mutate_ (testDF, .dots=setNames (list (dots), varName))
+}
+
+y.pred <- exp (predict (fit, testDF[,-1])) - 1
+result.df <- data.frame (datetime=strftime (testDF$datetime, 
+                                            format="%Y-%m-%d %H:%M:%S", 
+                                            tz="UTC"),
+                         count=y.pred)
+
+write.csv (result.df, "result-ensemble.csv", row.names = FALSE, quote = FALSE)
+# w <- generateWeights (length (files), 0.1)
+# findBestCrossValidatedWeightedAverage (w, resultDF, "count", train.df$count)

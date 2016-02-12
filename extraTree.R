@@ -35,6 +35,16 @@ fit <- train (count ~ season + holiday + workingday + weather + temp + atemp +
               maximize = FALSE
 )
 
+y.pred <- exp (predict (fit, train.df)) - 1
+result.df <- data.frame (datetime=strftime (train.df$datetime, 
+                                            format="%Y-%m-%d %H:%M:%S", 
+                                            tz="UTC"),
+                         count=y.pred)
+
+write.csv (result.df, "models/result-extraTrees-train.csv", quote=FALSE, row.names=FALSE)
+
+rm (y.pred)
+
 y.pred <- exp (predict (fit, test.df)) - 1
 result.df <- data.frame (datetime=strftime (test.df$datetime, 
                                             format="%Y-%m-%d %H:%M:%S", 
