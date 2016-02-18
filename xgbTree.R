@@ -7,44 +7,40 @@ library (lubridate)
 library (doMC)
 
 source ("support.R")
+source ("xgbFit.R")
 
-registerDoMC (cores=2)
 train.df <- read.csv ("data/train.csv")
 test.df <- read.csv ("data/test.csv")
 
-train.df <- formatData (train.df) %>% tbl_df()
+train.df <- formatData (train.df, logTransform = TRUE) %>% tbl_df()
 test.df <- formatData (test.df) %>% tbl_df()
+
+train.df$month <- factor (train.df$month)
+train.df$year <- factor (train.df$year)
+
+test.df$month <- factor (test.df$month)
+test.df$year <- factor (test.df$year)
 
 ctrl <- trainControl(method ="repeatedcv", 
                      number = 5,
                      repeats = 1,
-                     summaryFunction = computeRMSLE)
+                     savePredictions = "final")
 
-tunegrid <- expand.grid (nrounds = 1000,
-                eta = 10^seq (-2, -4, -1),
-                max_depth = c(2, 5, 10),
-                colsample_bytree = 1,
-                min_child_weight = 1,
-                gamma = 1)
+tunegrid <- data.frame (
+                nrounds=8500,
+                eta=0.00330925962444,
+                gamma=0.684530964272,
+                max_depth=7,
+                min_child_weight=0.596497397942,
+                subsample=0.678093555386,
+                colsample_bytree=0.662176894972)
 
 set.seed (1432)
-fit <- train (count ~ season + holiday + workingday + weather + temp + atemp +
+fit <- train (registered ~ season + holiday + workingday + weather + temp + atemp +
                          humidity + windspeed + year + month + wday + day + hour,
-                 data = train.df,
-                 method = "xgbTree",
-                 preProcess = c("center", "scale"),
-                 trControl = ctrl,
-                 tuneGrid = tunegrid,
-                 metric = "rmsle",
-                 maximize = FALSE
+                data = train.df,
+                method = xgbFull,
+                preProcess = c("center", "scale"),
+                trControl = ctrl,
+                tuneGrid = tunegrid
 )
-
-test.df$casual=1
-test.df$registered=1
-y.pred <- predict (fit, test.df)
-result.df <- data.frame (datetime=strftime (test.df$datetime, 
-                                            format="%Y-%m-%d %H:%M:%S", 
-                                            tz="UTC"),
-                         count=as.integer (y.pred))
-
-write.csv (result.df, "result-xgbTree.csv", quote=FALSE, row.names=FALSE)

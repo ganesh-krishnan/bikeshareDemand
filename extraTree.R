@@ -18,7 +18,8 @@ test.df <- formatData (test.df) %>% tbl_df()
 
 ctrl <- trainControl(method ="repeatedcv", 
                      number = 5,
-                     repeats = 1)
+                     repeats = 1,
+                     savePredictions = TRUE)
 
 tunegrid <- expand.grid (mtry = c(10), #13
                          numRandomCuts = c(3)) #3
@@ -31,9 +32,8 @@ fit <- train (count ~ season + holiday + workingday + weather + temp + atemp +
               preProcess = c("center", "scale"),
               trControl = ctrl,
               tuneGrid = tunegrid,
-              metric = "RMSE",
-              maximize = FALSE
-)
+              metric = "RMSE"
+              )
 
 y.pred <- exp (predict (fit, train.df)) - 1
 result.df <- data.frame (datetime=strftime (train.df$datetime, 

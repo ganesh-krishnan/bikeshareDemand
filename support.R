@@ -23,6 +23,53 @@ formatData <- function (df, logTransform=FALSE)
         df
 }
 
+getPrevPreds <- function (df, lookupValue, window=4, lookupColumn="datetime", 
+                          valueColumn="registered")
+{
+        df <- tbl_df (df)
+        dots <- list (lazyeval::interp (~lookupColumn, lookupColumn=as.name (lookupColumn)))
+        dots <- c(dots, lazyeval::interp (~ valueColumn, valueColumn=as.name (valueColumn)))
+        
+        df <- select_(df, .dots=dots)
+        lowerLookupBound <- lookupValue - dhours (window)
+        upperLookupBound <- lookupValue - dhours (1)
+        
+        dots <- lazyeval::interp (~ lookupColumn >= lowerLookupBound & 
+                                lookupColumn <= upperLookupBound, 
+                                lookupColumn=as.name (lookupColumn),
+                                lowerLookupBound=lowerLookupBound,
+                                upperLookupBound=upperLookupBound)
+        
+        filteredDF <- filter_ (df, dots)
+        prevPreds <- filteredDF[[valueColumn]]
+        if (length (prevPreds) < window) {
+            if (length (prevPreds) > 0) {
+                prevPreds <- c(rep (mean (prevPreds, na.rm=TRUE), 
+                                    window-length (prevPreds)), 
+                               prevPreds)
+            } else {
+                prevPreds <- rep (NA, window)
+            }
+        }
+        return (prevPreds)
+}
+
+createDFWithPrevPreds <- function (df, window=4, lookupColumn="datetime",
+                                   valueColumn="registered")
+{
+        columnNames <- paste (valueColumn, "prevPred", c(window:1), sep="_")
+        prevPredsDF <- tapply (df[[lookupColumn]], 1:length (df[[lookupColumn]]), 
+                        function (currentLookupValue) {
+                                prevPreds <- getPrevPreds (df, currentLookupValue, window, 
+                                                           lookupColumn, valueColumn)
+                                
+                                retDF <- data.frame (rbind (prevPreds))
+                                colnames (retDF) <- columnNames
+                                return (retDF)
+                        })
+        
+        rbind_all (prevPredsDF)
+}
 
 computeRMSLE <- function (data, lev=NULL, model=NULL)
 {

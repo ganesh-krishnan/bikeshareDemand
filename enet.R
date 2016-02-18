@@ -8,7 +8,7 @@ library (doMC)
 
 source ("support.R")
 
-registerDoMC (cores=2)
+#registerDoMC (cores=2)
 train.df <- read.csv ("data/train.csv")
 test.df <- read.csv ("data/test.csv")
 
@@ -20,7 +20,8 @@ set.seed (4322)
 ctrl <- trainControl(method ="repeatedcv", 
                      number = 5,
                      repeats = 1,
-                     summaryFunction = computeRMSLE)
+                     summaryFunction = computeRMSLE,
+                     savePredictions = "final")
 
 tuneGrid <- expand.grid (fraction = seq (0, 1, 0.1), lambda=10^seq (-5, 5, 0.5))
 
