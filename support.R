@@ -58,17 +58,18 @@ createDFWithPrevPreds <- function (df, window=4, lookupColumn="datetime",
                                    valueColumn="registered")
 {
         columnNames <- paste (valueColumn, "prevPred", c(window:1), sep="_")
-        prevPredsDF <- tapply (df[[lookupColumn]], 1:length (df[[lookupColumn]]), 
-                        function (currentLookupValue) {
-                                prevPreds <- getPrevPreds (df, currentLookupValue, window, 
-                                                           lookupColumn, valueColumn)
-                                
-                                retDF <- data.frame (rbind (prevPreds))
-                                colnames (retDF) <- columnNames
-                                return (retDF)
-                        })
+        prevPredsMatrix <- vapply (df[[lookupColumn]], FUN.VALUE=matrix (0, 1, 4), 
+                                   function (currentLookupValue) {
+                                           prevPreds <- getPrevPreds (df, currentLookupValue, window, 
+                                                                      lookupColumn, valueColumn)
+                                           
+                                           prevPreds
+                                   })
         
-        rbind_all (prevPredsDF)
+        prevPredsDF <- adply (prevPredsMatrix, 3)
+        prevPredsDF <- prevPredsDF[, 2:5]
+        names (prevPredsDF) <- columnNames
+        return (prevPredsDF)
 }
 
 computeRMSLE <- function (data, lev=NULL, model=NULL)
