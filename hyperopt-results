@@ -1,0 +1,800 @@
+--------------New Trial---------------
+eta, 0.185426233505
+max_depth, 6
+subsample, 0.848234592799
+col_sample_bytree, 0.745559466716
+min_child_weight, 0.858418004851
+gamma, 2.07265456508
+Result is, 0.28263
+--------------New Trial---------------
+eta, 0.0715396133746
+max_depth, 4
+subsample, 0.553032452977
+col_sample_bytree, 0.627386123963
+min_child_weight, 2.23641445466
+gamma, 1.7709736852
+Result is, 0.282722
+--------------New Trial---------------
+eta, 0.00544265055861
+max_depth, 5
+subsample, 0.75336300575
+col_sample_bytree, 0.894272003409
+min_child_weight, 0.172592085504
+gamma, 0.3976575816
+Result is, 0.265705
+--------------New Trial---------------
+eta, 0.016350073543
+max_depth, 5
+subsample, 0.552586063609
+col_sample_bytree, 0.642917369988
+min_child_weight, 0.384432216102
+gamma, 0.402912365991
+Result is, 0.266609
+--------------New Trial---------------
+eta, 0.929901535411
+max_depth, 6
+subsample, 0.761916659977
+col_sample_bytree, 0.508901488357
+min_child_weight, 0.11988892245
+gamma, 2.0710597062
+Result is, 0.316846
+--------------New Trial---------------
+eta, 0.0103947543256
+max_depth, 4
+subsample, 0.933318521425
+col_sample_bytree, 0.822737300248
+min_child_weight, 0.789434548792
+gamma, 0.124780331243
+Result is, 0.267469
+--------------New Trial---------------
+eta, 0.00871002277004
+max_depth, 2
+subsample, 0.785265812573
+col_sample_bytree, 0.977151943432
+min_child_weight, 0.804779327442
+gamma, 1.68995527368
+Result is, 0.314538
+--------------New Trial---------------
+eta, 0.240276372549
+max_depth, 4
+subsample, 0.570815134538
+col_sample_bytree, 0.926019366537
+min_child_weight, 0.934633083383
+gamma, 2.65703561438
+Result is, 0.291536
+--------------New Trial---------------
+eta, 0.0170580197459
+max_depth, 3
+subsample, 0.825076802736
+col_sample_bytree, 0.549523100729
+min_child_weight, 2.84432749752
+gamma, 1.74755565765
+Result is, 0.293323
+--------------New Trial---------------
+eta, 0.0168715907358
+max_depth, 4
+subsample, 0.890451949396
+col_sample_bytree, 0.99077367543
+min_child_weight, 1.14343362546
+gamma, 1.8157053839
+Result is, 0.284483
+--------------New Trial---------------
+eta, 0.0345830640594
+max_depth, 6
+subsample, 0.709754308174
+col_sample_bytree, 0.868951419963
+min_child_weight, 0.388982577854
+gamma, 0.426730544633
+Result is, 0.267431
+--------------New Trial---------------
+eta, 0.00799668070307
+max_depth, 4
+subsample, 0.905701813154
+col_sample_bytree, 0.748774285925
+min_child_weight, 1.34329273454
+gamma, 2.15492333208
+Result is, 0.290333
+--------------New Trial---------------
+eta, 0.028537217219
+max_depth, 6
+subsample, 0.830664471225
+col_sample_bytree, 0.503650125703
+min_child_weight, 0.983084100902
+gamma, 0.558196459628
+Result is, 0.267081
+--------------New Trial---------------
+eta, 0.0105928925323
+max_depth, 3
+subsample, 0.57660796845
+col_sample_bytree, 0.67734523182
+min_child_weight, 0.444503485392
+gamma, 0.457256995404
+Result is, 0.271015
+--------------New Trial---------------
+eta, 0.2406073431
+max_depth, 2
+subsample, 0.97192510406
+col_sample_bytree, 0.597002314414
+min_child_weight, 0.26563208449
+gamma, 1.16186952665
+Result is, 0.311697
+--------------New Trial---------------
+eta, 0.468975738689
+max_depth, 7
+subsample, 0.874671130659
+col_sample_bytree, 0.514814444175
+min_child_weight, 2.11569033454
+gamma, 1.74972014022
+Result is, 0.286479
+--------------New Trial---------------
+eta, 0.0537722111853
+max_depth, 3
+subsample, 0.745481193762
+col_sample_bytree, 0.595976573102
+min_child_weight, 2.2597345224
+gamma, 1.1830825871
+Result is, 0.283459
+--------------New Trial---------------
+eta, 0.0562633380364
+max_depth, 7
+subsample, 0.873952758248
+col_sample_bytree, 0.957752202901
+min_child_weight, 0.326196959703
+gamma, 1.35850637324
+Result is, 0.272388
+--------------New Trial---------------
+eta, 0.461219239171
+max_depth, 5
+subsample, 0.958692741976
+col_sample_bytree, 0.776769184151
+min_child_weight, 1.56718469291
+gamma, 1.47345315862
+Result is, 0.287772
+--------------New Trial---------------
+eta, 0.120434264434
+max_depth, 6
+subsample, 0.951030762406
+col_sample_bytree, 0.739462689039
+min_child_weight, 1.67342260736
+gamma, 2.32745720817
+Result is, 0.281768
+--------------New Trial---------------
+eta, 0.00284683134006
+max_depth, 5
+subsample, 0.653273196808
+col_sample_bytree, 0.691007119787
+min_child_weight, 0.573469259114
+gamma, 0.805628404329
+Result is, 0.26871
+--------------New Trial---------------
+eta, 0.00442291500947
+max_depth, 5
+subsample, 0.64537639513
+col_sample_bytree, 0.894716830866
+min_child_weight, 0.103328367031
+gamma, 0.00189124888339
+Result is, 0.265957
+--------------New Trial---------------
+eta, 0.00254705823719
+max_depth, 5
+subsample, 0.643343950932
+col_sample_bytree, 0.890733332371
+min_child_weight, 0.0465081324459
+gamma, 0.0987809216982
+Result is, 0.265898
+--------------New Trial---------------
+eta, 0.00339494133174
+max_depth, 5
+subsample, 0.646752278902
+col_sample_bytree, 0.841953028839
+min_child_weight, 0.0601965366066
+gamma, 0.806200372108
+Result is, 0.268332
+--------------New Trial---------------
+eta, 0.00440628836623
+max_depth, 5
+subsample, 0.697045558583
+col_sample_bytree, 0.926852744082
+min_child_weight, 2.98341527754
+gamma, 0.147721740898
+Result is, 0.265777
+--------------New Trial---------------
+eta, 0.00579141267108
+max_depth, 5
+subsample, 0.699729641124
+col_sample_bytree, 0.933839000911
+min_child_weight, 2.75634759522
+gamma, 0.834258813683
+Result is, 0.268303
+--------------New Trial---------------
+eta, 0.00462991053164
+max_depth, 5
+subsample, 0.693841377305
+col_sample_bytree, 0.804492171466
+min_child_weight, 2.55538968748
+gamma, 0.199289731344
+Result is, 0.265645
+--------------New Trial---------------
+eta, 0.031615825463
+max_depth, 7
+subsample, 0.502974319474
+col_sample_bytree, 0.800625959774
+min_child_weight, 2.50008545254
+gamma, 1.06279277243
+Result is, 0.267992
+--------------New Trial---------------
+eta, 0.00632090798071
+max_depth, 2
+subsample, 0.79755186954
+col_sample_bytree, 0.724809684308
+min_child_weight, 1.90677981624
+gamma, 0.297968318881
+Result is, 0.289868
+--------------New Trial---------------
+eta, 0.00254923933173
+max_depth, 5
+subsample, 0.598192997169
+col_sample_bytree, 0.789025092478
+min_child_weight, 2.61157858816
+gamma, 0.670857196667
+Result is, 0.268154
+--------------New Trial---------------
+eta, 0.108974393861
+max_depth, 5
+subsample, 0.727059458749
+col_sample_bytree, 0.850470078895
+min_child_weight, 1.81643259433
+gamma, 1.00733701118
+Result is, 0.271071
+--------------New Trial---------------
+eta, 0.0236710378205
+max_depth, 5
+subsample, 0.502049777724
+col_sample_bytree, 0.70480742122
+min_child_weight, 1.3558406692
+gamma, 0.271762642526
+Result is, 0.267067
+--------------New Trial---------------
+eta, 0.0130864783859
+max_depth, 5
+subsample, 0.678417057941
+col_sample_bytree, 0.813334416058
+min_child_weight, 2.18626345453
+gamma, 2.88835230626
+Result is, 0.291105
+--------------New Trial---------------
+eta, 0.00492162776647
+max_depth, 2
+subsample, 0.771287024076
+col_sample_bytree, 0.772776969548
+min_child_weight, 0.619109213508
+gamma, 0.581864579205
+Result is, 0.295343
+--------------New Trial---------------
+eta, 0.00697020502579
+max_depth, 3
+subsample, 0.61766285661
+col_sample_bytree, 0.894207759566
+min_child_weight, 2.41576406079
+gamma, 0.0439694533379
+Result is, 0.270605
+--------------New Trial---------------
+eta, 0.0201430482534
+max_depth, 7
+subsample, 0.79028385897
+col_sample_bytree, 0.651251452307
+min_child_weight, 1.87899575106
+gamma, 1.30371218312
+Result is, 0.270749
+--------------New Trial---------------
+eta, 0.00358984220431
+max_depth, 5
+subsample, 0.543686081305
+col_sample_bytree, 0.959029663978
+min_child_weight, 1.18790537724
+gamma, 0.31216866297
+Result is, 0.266023
+--------------New Trial---------------
+eta, 0.0124554076419
+max_depth, 4
+subsample, 0.747501983713
+col_sample_bytree, 0.99860643471
+min_child_weight, 2.97079696502
+gamma, 0.733002945104
+Result is, 0.269274
+--------------New Trial---------------
+eta, 0.0429149450468
+max_depth, 6
+subsample, 0.728399048626
+col_sample_bytree, 0.838310832463
+min_child_weight, 2.07982605581
+gamma, 0.948223634099
+Result is, 0.269622
+--------------New Trial---------------
+eta, 0.0916635026889
+max_depth, 5
+subsample, 0.67067617832
+col_sample_bytree, 0.871217965999
+min_child_weight, 0.71778351742
+gamma, 1.55531886376
+Result is, 0.274774
+--------------New Trial---------------
+eta, 0.00968816497183
+max_depth, 2
+subsample, 0.823873321012
+col_sample_bytree, 0.820887955411
+min_child_weight, 2.69429160842
+gamma, 1.94744100265
+Result is, 0.319999
+--------------New Trial---------------
+eta, 0.0156694822714
+max_depth, 4
+subsample, 0.534786894466
+col_sample_bytree, 0.761832473569
+min_child_weight, 1.12121037467
+gamma, 2.54621733979
+Result is, 0.294245
+--------------New Trial---------------
+eta, 0.0035210329221
+max_depth, 3
+subsample, 0.611417195162
+col_sample_bytree, 0.86885151516
+min_child_weight, 2.36541041248
+gamma, 0.495308456081
+Result is, 0.277646
+--------------New Trial---------------
+eta, 0.907294654731
+max_depth, 6
+subsample, 0.922502657699
+col_sample_bytree, 0.973395303779
+min_child_weight, 1.46190227025
+gamma, 0.180532661738
+Result is, 0.34828
+--------------New Trial---------------
+eta, 0.165252553285
+max_depth, 5
+subsample, 0.854665838149
+col_sample_bytree, 0.90897032099
+min_child_weight, 0.870919831023
+gamma, 0.62464771783
+Result is, 0.272404
+--------------New Trial---------------
+eta, 0.00794936076524
+max_depth, 7
+subsample, 0.760542098602
+col_sample_bytree, 0.717978300768
+min_child_weight, 0.240383190639
+gamma, 0.441305787655
+Result is, 0.265389
+--------------New Trial---------------
+eta, 0.00856557252258
+max_depth, 7
+subsample, 0.818516736041
+col_sample_bytree, 0.639242567871
+min_child_weight, 1.98373447001
+gamma, 0.382228063554
+Result is, 0.266254
+--------------New Trial---------------
+eta, 0.0245135443328
+max_depth, 7
+subsample, 0.774300553607
+col_sample_bytree, 0.606659031664
+min_child_weight, 2.86618408527
+gamma, 1.59080807843
+Result is, 0.273044
+--------------New Trial---------------
+eta, 0.0709928181168
+max_depth, 7
+subsample, 0.848554824217
+col_sample_bytree, 0.723989613431
+min_child_weight, 1.72384377123
+gamma, 1.20277702658
+Result is, 0.270988
+--------------New Trial---------------
+eta, 0.0369725105025
+max_depth, 7
+subsample, 0.719599809663
+col_sample_bytree, 0.568745689064
+min_child_weight, 0.229312044096
+gamma, 2.25200528812
+Result is, 0.279722
+--------------New Trial---------------
+eta, 0.0124932868452
+max_depth, 7
+subsample, 0.576053373289
+col_sample_bytree, 0.676669976704
+min_child_weight, 0.523264729879
+gamma, 0.929409509909
+Result is, 0.267519
+--------------New Trial---------------
+eta, 0.409542456761
+max_depth, 4
+subsample, 0.985015711986
+col_sample_bytree, 0.56172982089
+min_child_weight, 1.53612360122
+gamma, 0.210469773732
+Result is, 0.283762
+--------------New Trial---------------
+eta, 0.0186332709781
+max_depth, 3
+subsample, 0.8104844621
+col_sample_bytree, 0.675664358215
+min_child_weight, 1.28590489576
+gamma, 0.0153224563308
+Result is, 0.270069
+--------------New Trial---------------
+eta, 0.00803023122743
+max_depth, 7
+subsample, 0.669350107894
+col_sample_bytree, 0.659276171066
+min_child_weight, 1.05793363469
+gamma, 1.88318563329
+Result is, 0.276737
+--------------New Trial---------------
+eta, 0.00290108050697
+max_depth, 2
+subsample, 0.759068122283
+col_sample_bytree, 0.72096050211
+min_child_weight, 0.719531894101
+gamma, 0.505295006919
+Result is, 0.303369
+--------------New Trial---------------
+eta, 0.00417410078003
+max_depth, 6
+subsample, 0.625078032554
+col_sample_bytree, 0.52382219446
+min_child_weight, 2.26511390461
+gamma, 1.33361500059
+Result is, 0.272955
+--------------New Trial---------------
+eta, 0.00570190315804
+max_depth, 7
+subsample, 0.877152681424
+col_sample_bytree, 0.620948476187
+min_child_weight, 2.5392060259
+gamma, 1.45341734515
+Result is, 0.273214
+--------------New Trial---------------
+eta, 0.0650125416726
+max_depth, 4
+subsample, 0.692906542036
+col_sample_bytree, 0.745234774592
+min_child_weight, 0.451842382664
+gamma, 1.07559194768
+Result is, 0.272838
+--------------New Trial---------------
+eta, 0.00690360563927
+max_depth, 3
+subsample, 0.902799244789
+col_sample_bytree, 0.797974043299
+min_child_weight, 1.65917496172
+gamma, 0.390067780338
+Result is, 0.272707
+--------------New Trial---------------
+eta, 0.0276536943211
+max_depth, 7
+subsample, 0.518452879004
+col_sample_bytree, 0.69510484211
+min_child_weight, 0.948649508647
+gamma, 2.08828303564
+Result is, 0.279685
+--------------New Trial---------------
+eta, 0.0417027468133
+max_depth, 2
+subsample, 0.596838651727
+col_sample_bytree, 0.773960552859
+min_child_weight, 2.03252448524
+gamma, 0.697171579611
+Result is, 0.286636
+--------------New Trial---------------
+eta, 0.0107118192081
+max_depth, 6
+subsample, 0.742568092935
+col_sample_bytree, 0.754349891846
+min_child_weight, 2.890172927
+gamma, 2.89038538222
+Result is, 0.287513
+--------------New Trial---------------
+eta, 0.00250041580468
+max_depth, 7
+subsample, 0.806693351803
+col_sample_bytree, 0.587450218599
+min_child_weight, 1.43179270628
+gamma, 0.873478891553
+Result is, 0.267765
+--------------New Trial---------------
+eta, 0.0152217430036
+max_depth, 5
+subsample, 0.563653519317
+col_sample_bytree, 0.852698224304
+min_child_weight, 0.00779813632496
+gamma, 2.99333872656
+Result is, 0.29254
+--------------New Trial---------------
+eta, 0.00311669498104
+max_depth, 3
+subsample, 0.840771774873
+col_sample_bytree, 0.708714463087
+min_child_weight, 2.762438919
+gamma, 1.66480363821
+Result is, 0.294861
+--------------New Trial---------------
+eta, 0.00553009506981
+max_depth, 5
+subsample, 0.779912175357
+col_sample_bytree, 0.915343849344
+min_child_weight, 0.220195144623
+gamma, 0.0710567119672
+Result is, 0.266377
+--------------New Trial---------------
+eta, 0.00483556285806
+max_depth, 5
+subsample, 0.708919251017
+col_sample_bytree, 0.940061797041
+min_child_weight, 0.170645768417
+gamma, 0.251991814646
+Result is, 0.26582
+--------------New Trial---------------
+eta, 0.00404738791211
+max_depth, 5
+subsample, 0.685207467618
+col_sample_bytree, 0.829752307593
+min_child_weight, 0.308378047539
+gamma, 0.732064285629
+Result is, 0.26764
+--------------New Trial---------------
+eta, 0.00722322815346
+max_depth, 5
+subsample, 0.660356299163
+col_sample_bytree, 0.809986624055
+min_child_weight, 0.453634851364
+gamma, 0.559916143359
+Result is, 0.266265
+--------------New Trial---------------
+eta, 0.010968066434
+max_depth, 5
+subsample, 0.6329838444
+col_sample_bytree, 0.791229042607
+min_child_weight, 0.692940570877
+gamma, 0.383032123047
+Result is, 0.266004
+--------------New Trial---------------
+eta, 0.0218912892012
+max_depth, 5
+subsample, 0.736809200156
+col_sample_bytree, 0.874304361616
+min_child_weight, 0.136623316663
+gamma, 0.120817152787
+Result is, 0.26781
+--------------New Trial---------------
+eta, 0.0139934884157
+max_depth, 4
+subsample, 0.703724465542
+col_sample_bytree, 0.885613360463
+min_child_weight, 0.885922382372
+gamma, 1.11914444655
+Result is, 0.273348
+--------------New Trial---------------
+eta, 0.00509461177561
+max_depth, 5
+subsample, 0.754989053762
+col_sample_bytree, 0.946419546687
+min_child_weight, 1.24220948311
+gamma, 0.43552709269
+Result is, 0.265786
+--------------New Trial---------------
+eta, 0.00916320413443
+max_depth, 2
+subsample, 0.862024330228
+col_sample_bytree, 0.980855879487
+min_child_weight, 0.391935611487
+gamma, 1.22513522794
+Result is, 0.309751
+--------------New Trial---------------
+eta, 0.0179110428201
+max_depth, 6
+subsample, 0.796440259984
+col_sample_bytree, 0.737403982067
+min_child_weight, 0.617624860654
+gamma, 0.320802812328
+Result is, 0.265871
+--------------New Trial---------------
+eta, 0.00371539208711
+max_depth, 5
+subsample, 0.768355668983
+col_sample_bytree, 0.916611775409
+min_child_weight, 1.05096912112
+gamma, 0.778761236965
+Result is, 0.268559
+--------------New Trial---------------
+eta, 0.0026111750893
+max_depth, 7
+subsample, 0.836190242123
+col_sample_bytree, 0.850297440664
+min_child_weight, 0.779981208978
+gamma, 0.659547160931
+Result is, 0.266786
+--------------New Trial---------------
+eta, 0.00616785016982
+max_depth, 5
+subsample, 0.588541310732
+col_sample_bytree, 0.761271703279
+min_child_weight, 0.0264827762194
+gamma, 0.93907272896
+Result is, 0.268478
+--------------New Trial---------------
+eta, 0.0510942125308
+max_depth, 4
+subsample, 0.783343725728
+col_sample_bytree, 0.783704062509
+min_child_weight, 1.39118840827
+gamma, 0.167253752951
+Result is, 0.26971
+--------------New Trial---------------
+eta, 0.721474206119
+max_depth, 3
+subsample, 0.718900187439
+col_sample_bytree, 0.663858371331
+min_child_weight, 0.50891562051
+gamma, 0.541484746033
+Result is, 0.313682
+--------------New Trial---------------
+eta, 0.085511408582
+max_depth, 7
+subsample, 0.659443466662
+col_sample_bytree, 0.903711844795
+min_child_weight, 0.339936872417
+gamma, 2.42758167205
+Result is, 0.279664
+--------------New Trial---------------
+eta, 0.0274010312776
+max_depth, 5
+subsample, 0.68426408319
+col_sample_bytree, 0.805704459269
+min_child_weight, 2.20687292594
+gamma, 0.850777469886
+Result is, 0.268864
+--------------New Trial---------------
+eta, 0.181193904292
+max_depth, 2
+subsample, 0.732983480211
+col_sample_bytree, 0.833081538087
+min_child_weight, 2.380812396
+gamma, 1.01898341134
+Result is, 0.296034
+--------------New Trial---------------
+eta, 0.00323357600854
+max_depth, 6
+subsample, 0.716440849091
+col_sample_bytree, 0.860589701809
+min_child_weight, 1.76027601473
+gamma, 0.0579072578834
+Result is, 0.266827
+--------------New Trial---------------
+eta, 0.011228476617
+max_depth, 7
+subsample, 0.632996296916
+col_sample_bytree, 0.881519383599
+min_child_weight, 1.63357797163
+gamma, 0.00597667926027
+Result is, 0.270205
+--------------New Trial---------------
+eta, 0.00776248588997
+max_depth, 5
+subsample, 0.943568236549
+col_sample_bytree, 0.731747964389
+min_child_weight, 0.2822746535
+gamma, 1.43442943434
+Result is, 0.276524
+--------------New Trial---------------
+eta, 0.293156040649
+max_depth, 5
+subsample, 0.762180464407
+col_sample_bytree, 0.690120523316
+min_child_weight, 2.63292383408
+gamma, 0.462494162962
+Result is, 0.280923
+--------------New Trial---------------
+eta, 0.0338690356288
+max_depth, 7
+subsample, 0.862736535946
+col_sample_bytree, 0.636365360188
+min_child_weight, 0.80686121685
+gamma, 0.604603768911
+Result is, 0.267789
+--------------New Trial---------------
+eta, 0.0094523894353
+max_depth, 4
+subsample, 0.925738087666
+col_sample_bytree, 0.704364230825
+min_child_weight, 0.111145363961
+gamma, 1.26247961669
+Result is, 0.280625
+--------------New Trial---------------
+eta, 0.139500295168
+max_depth, 3
+subsample, 0.896259160432
+col_sample_bytree, 0.964670608263
+min_child_weight, 1.0259146922
+gamma, 0.246880956095
+Result is, 0.271672
+--------------New Trial---------------
+eta, 0.00443657855448
+max_depth, 2
+subsample, 0.815212082015
+col_sample_bytree, 0.816318494268
+min_child_weight, 1.13600551558
+gamma, 0.320529320562
+Result is, 0.295088
+--------------New Trial---------------
+eta, 0.0200992336602
+max_depth, 5
+subsample, 0.885135063262
+col_sample_bytree, 0.899274806735
+min_child_weight, 1.83961605218
+gamma, 1.40396999002
+Result is, 0.274421
+--------------New Trial---------------
+eta, 0.00659895778361
+max_depth, 6
+subsample, 0.749155957488
+col_sample_bytree, 0.767185059609
+min_child_weight, 2.14431357975
+gamma, 2.70259629599
+Result is, 0.286068
+--------------New Trial---------------
+eta, 0.00290253315054
+max_depth, 7
+subsample, 0.671177374934
+col_sample_bytree, 0.7528239438
+min_child_weight, 1.93739460214
+gamma, 1.53450777045
+Result is, 0.27368
+--------------New Trial---------------
+eta, 0.013967634381
+max_depth, 5
+subsample, 0.696011367146
+col_sample_bytree, 0.926079919403
+min_child_weight, 2.30451817664
+gamma, 1.13994002694
+Result is, 0.270734
+--------------New Trial---------------
+eta, 0.0590694422137
+max_depth, 7
+subsample, 0.801093695449
+col_sample_bytree, 0.623459101687
+min_child_weight, 2.52135436277
+gamma, 0.771718801904
+Result is, 0.269685
+--------------New Trial---------------
+eta, 0.00385979406874
+max_depth, 3
+subsample, 0.612388955333
+col_sample_bytree, 0.716387533557
+min_child_weight, 2.93756300534
+gamma, 0.103963705283
+Result is, 0.274912
+--------------New Trial---------------
+eta, 0.045503141939
+max_depth, 5
+subsample, 0.829670398094
+col_sample_bytree, 0.842132112872
+min_child_weight, 2.78755211074
+gamma, 1.98504164121
+Result is, 0.280804
+--------------New Trial---------------
+eta, 0.00507316637025
+max_depth, 4
+subsample, 0.645095279425
+col_sample_bytree, 0.82593199885
+min_child_weight, 0.569340652317
+gamma, 1.81565160543
+Result is, 0.286039
+--------------New Trial---------------
+eta, 0.0160230888471
+max_depth, 2
+subsample, 0.773643686211
+col_sample_bytree, 0.529089214608
+min_child_weight, 1.29736535494
+gamma, 0.894310730338
+Result is, 0.298121

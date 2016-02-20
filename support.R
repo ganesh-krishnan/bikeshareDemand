@@ -24,12 +24,13 @@ formatData <- function (df, logTransform=FALSE)
 }
 
 getPrevPreds <- function (df, lookupValue, window=4, lookupColumn="datetime", 
-                          valueColumn="registered")
+                          valueColumn="registered", impute=FALSE)
 {
         df <- tbl_df (df)
         dots <- list (lazyeval::interp (~lookupColumn, lookupColumn=as.name (lookupColumn)))
         dots <- c(dots, lazyeval::interp (~ valueColumn, valueColumn=as.name (valueColumn)))
-        
+        dots <- c(dots, lazyeval::interp (~ hour))
+                  
         df <- select_(df, .dots=dots)
         lowerLookupBound <- lookupValue - dhours (window)
         upperLookupBound <- lookupValue - dhours (1)
@@ -47,9 +48,16 @@ getPrevPreds <- function (df, lookupValue, window=4, lookupColumn="datetime",
                 prevPreds <- c(rep (mean (prevPreds, na.rm=TRUE), 
                                     window-length (prevPreds)), 
                                prevPreds)
-            } else {
+            } else if (impute==FALSE) {
                 prevPreds <- rep (NA, window)
             }
+              else {
+                print (paste0 (lookupValue, " : imputed"))
+                subsetDF <- df[df$hour==hour (lookupValue),]
+                prevPreds <- rep (mean (subsetDF[[valueColumn]], 
+                                        na.rm=TRUE), 
+                                  window)
+              }
         }
         return (prevPreds)
 }

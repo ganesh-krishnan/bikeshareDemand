@@ -119,6 +119,23 @@ findBestCrossValidatedWeightedAverage <- function (weightMatrix, df, resultColNa
         })
 }
 
+createCrossValidatedEnsemble <- function (trainDF, predictColName, numFolds)
+{
+        trainFolds <- caret::createFolds (trainDF[[predictColName]], k=numFolds, 
+                                          list=TRUE, returnTrain=TRUE)
+        
+        for (currentFinalHoldOutFold in 1:numFolds) {
+                #Hold out current fold
+                firstStageFolds <- trainFolds[-currentFinalHoldOutFold]
+                
+                for (currentFirstStageHoldOutFold in 1:length (firstStageFolds)) {
+                        firstStageTrainFolds <- firstStageFolds[-currentFirstStageHoldOutFold]
+                        
+                }
+                
+        }
+}
+
 files <- c ("models/result-xgbSeparate-train.csv", "models/result-extraTrees-train.csv",
             "models/result-vw-train.csv")
 
@@ -141,8 +158,7 @@ tuneGrid <- expand.grid (fraction = seq (0, 1, 0.1), lambda=10^seq (-5, 5, 0.5))
 
 fit <- train (resultDF[,-1], train.df$count, method="xgbLinear", trControl=ctrl)#, tuneGrid = tuneGrid)
 
-files <- c ("result-xgbSeparate.csv", "result-extraTrees.csv",
-            "result-vw.csv")
+files <- c ("result-xgb-registered-prevPreds.csv", "result-xgb-casual-prevPreds.csv")
 
 testList <- lapply (files, function (x) {read.csv (x, header=TRUE, stringsAsFactors = FALSE)})
 testDF <- createCompositeDF (testList, "count") %>% tbl_df()
