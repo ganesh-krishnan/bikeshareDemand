@@ -119,17 +119,37 @@ findBestCrossValidatedWeightedAverage <- function (weightMatrix, df, resultColNa
         })
 }
 
-createCrossValidatedEnsemble <- function (trainDF, predictColName, numFolds)
+createCrossValidatedEnsemble <- function (trainDF, fitFormula, modelSpecsList, repeats,
+                                          numFolds)
 {
-        trainFolds <- caret::createFolds (trainDF[[predictColName]], k=numFolds, 
-                                          list=TRUE, returnTrain=TRUE)
+        predictColName <- all.vars (fitFormula)[1]
+        
+        folds <- caret::createFolds (trainDF[[predictColName]], k=numFolds, 
+                                     list=TRUE, returnTrain=FALSE)
+        
         
         for (currentFinalHoldOutFold in 1:numFolds) {
                 #Hold out current fold
-                firstStageFolds <- trainFolds[-currentFinalHoldOutFold]
+                firstStageFolds <- folds[-currentFinalHoldOutFold]
                 
                 for (currentFirstStageHoldOutFold in 1:length (firstStageFolds)) {
                         firstStageTrainFolds <- firstStageFolds[-currentFirstStageHoldOutFold]
+                        firstStageTrainIndices <- unlist (firstStageTrainFolds)
+                        
+                        ctrl <- trainControl(
+                                method="none",
+                                number= numFolds,
+                                savePredictions="final",
+                                verboseIter = TRUE,
+                                index=firstStageTrainIndices
+                        )
+                        
+                        model_list <- caretList (fitFormula,
+                                                 data=train.df[firstStageTrainIndices,],
+                                                 trControl=ctrl,
+                                                 tuneList=modelSpecList
+                                                 )
+                        
                         
                 }
                 

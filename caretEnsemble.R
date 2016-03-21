@@ -18,11 +18,11 @@ test.df <- formatData (test.df) %>% tbl_df()
 
 ctrl <- trainControl(
         method="repeatedcv",
-        number=5,
-        repeats = 2,
+        number=2,
+        repeats = 1,
         savePredictions="final",
         verboseIter = TRUE,
-        index=createMultiFolds(train.df$count, 5, 2)
+        index=createMultiFolds(train.df$count, 2, 1)
 )
 
 set.seed (1432)
@@ -35,7 +35,7 @@ model_list <- caretList (
         tuneList = list(
                 xgb = caretModelSpec(method="xgbTree", 
                         tuneGrid=data.frame (
-                                nrounds=5000,
+                                nrounds=500,
                                 eta=0.00872705408756,
                                 gamma=0.0970527175576,
                                 max_depth=7,
