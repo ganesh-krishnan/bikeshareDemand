@@ -5,10 +5,10 @@ The objective of this competition is to accurately predict demand for bikes in a
 ## Road to Top 20
 Getting to top 20 on this competition took a lot of work. I had to engineer new features, learn new modeling approaches, explore new hyperparameter optimization methods and apply ensemble learning techniques. Here is a partial summary of the things that I tried:
 
-* Feature engineering the date and time variables
-* Tried a huge array of ML models including random forests, extremely randomized trees, generalized linear models, elastic nets, generalized additive models and autoregressive models
-* Applied bayesian hyperparameter optimization techniques to eke out every last ounce (micro-ounce?) of performance
-* Used ensemble techniques to reduce variance and improve predictions
+* _Feature engineering the date and time variables_
+* _Tried a huge array of ML models including random forests, extremely randomized trees, generalized linear models, elastic nets, generalized additive models and autoregressive models_
+* _Applied bayesian hyperparameter optimization techniques to eke out every last ounce (micro-ounce?) of performance_
+* _Used ensemble techniques to reduce variance and improve predictions_
 
 ## Dataset
 The dataset consisted of the following variable:
