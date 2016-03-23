@@ -32,4 +32,4 @@ The dataset consisted of the following variable:
 
 ## Metric
 The metric is root mean square logarithmic error. I've reproduced the metric from the competition for reference.
-![alt text](https://github.com/ganesh-krishnan/kaggleBikeShare/blob/master/rmsle.png)
+![alt text](https://github.com/ganesh-krishnan/kaggleBikeShare/blob/master/images/rmsle.png)
