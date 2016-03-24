@@ -15,7 +15,7 @@ library (dplyr)
 library (ggplot2)
 library (reshape2)
 
-hyperopt.df <- read.csv ("hyperopt.csv", header=FALSE, stringsAsFactors = FALSE) %>% tbl_df()
+hyperopt.df <- read.csv ("hyperopt/hyperopt.csv", header=FALSE, stringsAsFactors = FALSE) %>% tbl_df()
 names (hyperopt.df) <- c("trialNum", "parameter", "value")
 
 result.df <- filter (hyperopt.df, parameter=="result") %>% select (-parameter, result=value) 
