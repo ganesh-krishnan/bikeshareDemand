@@ -1,3 +1,4 @@
+from __future__ import print_function
 import rpy2.robjects as ro
 import pandas as pd
 from rpy2.robjects import pandas2ri
@@ -16,26 +17,26 @@ def objective (params):
 
     f1=open ('./hyperopt-results', "a")
     
-    print "--------------New Trial---------------"
-    print "eta,", eta
-    print "max_depth,", max_depth
-    print "subsample,", subsample
-    print "col_sample_bytree,", col_sample_bytree
-    print "min_child_weight,", min_child_weight
-    print "gamma,", gamma
+    print ("--------------New Trial---------------")
+    print ("eta,{}".format(eta))
+    print ("max_depth,{}".format (max_depth))
+    print ("subsample,{}".format (subsample))
+    print ("col_sample_bytree,{}".format (col_sample_bytree))
+    print ("min_child_weight,{}".format (min_child_weight))
+    print ("gamma,{}".format (gamma))
 
-    print >> f1, "--------------New Trial---------------"
-    print >> f1, "eta,", eta
-    print >> f1, "max_depth,", max_depth
-    print >> f1, "subsample,", subsample
-    print >> f1, "col_sample_bytree,", col_sample_bytree
-    print >> f1, "min_child_weight,", min_child_weight
-    print >> f1, "gamma,", gamma
+    print ("--------------New Trial---------------", file=f1)
+    print ("eta,{}".format (eta), file=f1)
+    print ("max_depth,{}".format (max_depth), file=f1)
+    print ("subsample,{}".format (subsample), file=f1)
+    print ("col_sample_bytree,{}".format (col_sample_bytree), file=f1)
+    print ("min_child_weight,{}".format (min_child_weight), file=f1)
+    print ("gamma,{}".format (gamma), file=f1)
 
     ro.globalenv['params'] = rParams
     rmse = ro.r('fitFunc (fitFormula, trainData, params)')
     print (rmse[0])
-    print >> f1, "Result is,", rmse[0]
+    print ("Result is,{}".format (rmse[0]), file=f1)
     f1.close()
     return (rmse[0])
     
@@ -58,6 +59,6 @@ best = fmin (objective,
              algo = tpe.suggest,
              max_evals= 100)
 
-print best
+print (best)
             
 

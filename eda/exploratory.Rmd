@@ -15,14 +15,13 @@ library (dplyr)
 library (ggplot2)
 library (lubridate)
 library (reshape2)
-library (gam)
 
-source ("support.R")
+source ("../support.R")
 ```
 
 ```{r loadDataSets}
-train.df <- read.csv ("data/train.csv")
-test.df <- read.csv ("data/test.csv")
+train.df <- read.csv ("../data/train.csv")
+test.df <- read.csv ("../data/test.csv")
 
 train.df <- formatData (train.df) %>% tbl_df()
 test.df <- formatData (test.df) %>% tbl_df()
@@ -39,8 +38,8 @@ ggplot (long.df, aes (x=datetime)) + geom_smooth (aes (y=total, color=type))
 ggplot (long.df, aes (x=hour)) + geom_smooth (aes(y=total, color=type))
 
 ggplot (long.df, aes (x=wday, y=total, group=type, color=type)) + geom_point () +
-        stat_smooth (method="gam", formula=y ~ ns(x, k=5))
- #+ geom_smooth (aes(color=type))
+        stat_smooth (method="gam", formula=y ~ ns(x, k=5)) + 
+        geom_smooth (aes(color=type))
                                               
                                               
 ggplot (long.df, aes (x=holiday, y=total)) + geom_boxplot() + facet_wrap(~type)
